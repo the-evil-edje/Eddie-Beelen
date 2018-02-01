@@ -16,7 +16,13 @@ body{
 
 #main-nav img{
 	height: 100px;
-	position: absolute;
+
+}
+
+.header-text {
+  position: absolute;
+  top: 53px;
+  left: 113px;
 }
 
 
@@ -32,11 +38,25 @@ body{
   border: 1px solid red;
 }
 
+#main-left h1{
+  color: blue;
+}
+
 #main-center{
   width: 300px;
   height: 100%;
   float:left;
   border: 1px solid red;
+}
+
+#main-center div{
+  height: 100px;
+  width: 250px;
+  background-color: #f1f1f1;
+}
+
+#main-center img{
+  height: 100px;
 }
 
 #main-right{
