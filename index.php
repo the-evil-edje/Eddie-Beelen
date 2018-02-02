@@ -1,4 +1,6 @@
+<!--Worked together with Thomas. possible some codes are the same-->
 <!DOCTYPE html>
+
 <?php
 		require 'inc/database-connection.php';
 		if (isset($_GET['TeamId'])) {
@@ -64,11 +66,19 @@
 						if ($nrRows > 0) {
 							// output data of each row
 							while($row = mysqli_fetch_assoc($result)) {
-								?> <div>
-									<a href="index.php?TeamId=<?php echo $TeamId; ?>&HeroId=<?php echo $row['HERO_ID']; ?>"><?php echo $row["HERO_NAME"]; ?></a>
-									<br />
-									<img src="<?php echo $row['HERO_IMAGE'];?>"/>
+								?>
+
+								<div class="Border">
+										<h1><?php echo $row["HERO_NAME"]; ?></h1>
+
+										<br />
+										<img src="<?php echo $row['HERO_IMAGE'];?>"/>
+										<div >
+											<p><a href="index.php?TeamId=<?php echo $TeamId; ?>&HeroId=<?php echo $row['HERO_ID']; ?>">Learn more</a></p>
+											<?php echo $row["HERO_DESCRIPTION"] ?>
+										</div>
 								</div>
+
 								<?php
 							}
 						} else {
@@ -93,8 +103,21 @@
 						if (mysqli_num_rows($result) > 0) {
 							// output data of each row
 							while($row = mysqli_fetch_assoc($result)) {
-								?> <div>
-									<?php echo $row["HERO_NAME"]; ?>
+								?>
+								<div>
+									<div class="HeroBackgroundForImg">
+										<div class="HeroName">
+											<h1><?php echo $row["HERO_NAME"]; ?></h1>
+										</div>
+									</div>
+									<img src="<?php echo $row['HERO_IMAGE'];?>"/>
+									<div class="HeroDescription">
+										<?php echo $row["HERO_DESCRIPTION"] ?>
+										<h1>POWERS</h1>
+										<?php echo $row["HERO_POWERS"] ?>
+									</div>
+
+
 								</div>
 								<?php
 							}
@@ -104,7 +127,7 @@
 				}
 				else
 				{
-					echo "Please select team first ";
+					echo "Please select superhero first ";
 				}
 					 ?>
 			</div>
